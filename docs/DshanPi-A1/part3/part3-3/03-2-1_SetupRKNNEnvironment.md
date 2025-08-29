@@ -47,8 +47,15 @@ git clone -b v2.3.2 https://github.com/airockchip/rknn-toolkit2.git
 # 下载 RKNN Model Zoo 仓库
 git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
 ```
+如果无法通过git获取可访问下面的链接下载：
+
+- rknn-toolkit2：[rknn-toolkit2](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/utils/rknn-toolkit2.zip)
+- rknn_model_zoo：[rknn_model_zoo](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/utils/rknn_model_zoo.zip)
 
 ## 3.安装 RKNN 环境
+如果您有x86 PC可安装RKNN-Toolkit2，后续可用于模型训练和转换，只需要将安装的程序和库切换为x86版本即可！
+
+由于x86 PC版本众多，无法逐一做演示，统一以板端安装RKNN-Toolkit2演示模型转换。
 
 ### 3.1 安装Conada
 
@@ -57,6 +64,7 @@ git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
 ```
 wget -c https://repo.anaconda.com/archive/Anaconda3-2025.06-1-Linux-aarch64.sh
 ```
+如果无法通过wget获取可通过这里下载：[Anaconda3-2025.06-1-Linux-aarch64.sh](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/utils/Anaconda3-2025.06-1-Linux-aarch64.sh)
 
 2.启动安装脚本
 

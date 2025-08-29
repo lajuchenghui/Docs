@@ -6,7 +6,6 @@ sidebar_position: 3
 参考资料：
 
 - 模型仓库：[https://github.com/airockchip/ultralytics_yolov8](https://github.com/airockchip/ultralytics_yolov8)
-- 
 
 ## 1.获取原始模型
 
