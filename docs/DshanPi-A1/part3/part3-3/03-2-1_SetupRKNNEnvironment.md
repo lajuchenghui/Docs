@@ -45,17 +45,21 @@ cd Projects
 # 下载 RKNN-Toolkit2 仓库
 git clone -b v2.3.2 https://github.com/airockchip/rknn-toolkit2.git
 # 下载 RKNN Model Zoo 仓库
-git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
+git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git.
 ```
+
 如果无法通过git获取可访问下面的链接下载：
 
 - rknn-toolkit2：[rknn-toolkit2](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/utils/rknn-toolkit2.zip)
 - rknn_model_zoo：[rknn_model_zoo](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/utils/rknn_model_zoo.zip)
 
-## 3.安装 RKNN 环境
-如果您有x86 PC可安装RKNN-Toolkit2，后续可用于模型训练和转换，只需要将安装的程序和库切换为x86版本即可！
 
-由于x86 PC版本众多，无法逐一做演示，统一以板端安装RKNN-Toolkit2演示模型转换。
+
+## 3.安装模型转换环境
+
+> 如果您有x86 PC可安装RKNN-Toolkit2，后续可用于模型训练和转换，只需要将安装的程序和库切换为x86版本即可！
+>
+> 由于x86 PC版本众多，无法逐一做演示，统一以板端安装RKNN-Toolkit2演示模型转换。
 
 ### 3.1 安装Conada
 
@@ -64,6 +68,7 @@ git clone -b v2.3.2 https://github.com/airockchip/rknn_model_zoo.git
 ```
 wget -c https://repo.anaconda.com/archive/Anaconda3-2025.06-1-Linux-aarch64.sh
 ```
+
 如果无法通过wget获取可通过这里下载：[Anaconda3-2025.06-1-Linux-aarch64.sh](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/utils/Anaconda3-2025.06-1-Linux-aarch64.sh)
 
 2.启动安装脚本
@@ -142,9 +147,7 @@ conda activate rknn-toolkit2
 python --version
 ```
 
-Conda常用命令：
-
-|             命令             | 描述         |
+|          常用命令             | 描述         |
 | :--------------------------: | :----------- |
 |   conda activate env-name    | 激活环境     |
 |       conda deactivate       | 退出环境     |
@@ -194,7 +197,11 @@ from rknn.api import RKNN
 
 
 
-### 3.4 安装RKNN Toolkit Lite2
+## 4.安装模型推理环境
+
+> 注意：端侧推理环境可安装在开发板的本地环境！
+
+### 4.1 安装RKNN Toolkit Lite2
 
 1.进入RKNN Toolkit Lite2目录
 
@@ -204,9 +211,19 @@ cd ~/Projects/rknn-toolkit2/rknn-toolkit-lite2/packages
 
 2.安装RKNN Toolkit Lite2依赖
 
+- conda创建的python3.8可执行如下命令，安装python3.8的安装包：
+
 ```
 pip install ./rknn_toolkit_lite2-2.3.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
 ```
+
+- 本地的python版本为3.12，即本地需要安装python3.12的安装包：
+
+```
+pip install --break-system-packages ./rknn_toolkit_lite2-2.3.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+- 如果环境是其他版本请安装其他python版本的安装包。
 
 3.验证安装环境
 
@@ -219,7 +236,7 @@ python3
 
 
 
-### 3.5 安装NPU Runtime库
+### 4.2 安装NPU Runtime库
 
 1.进入Runtime库目录
 
@@ -253,6 +270,8 @@ restart_rknn.sh
 
 
 ## 4.测试模型转换
+
+> 注意：进行模型转换需要进入RKNN模型转换环境下！
 
 1.激活rknn-toolkit2环境，进入模型仓库路径，这里以`yolov8`为例：
 
@@ -291,6 +310,8 @@ python3 convert.py ../model/yolov8n.onnx rk3576
 
 ## 5.测试模型推理
 
+> 模型推理需要在开发板侧进行操作！
+
 1.进入模型仓库路径，这里以`yolov8`为例：
 
 ```
@@ -312,3 +333,46 @@ python3 yolov8.py --target rk3576 --model_path ../model/yolov8.rknn --img_show
 运行效果：
 
 ![image-20250814160236039](${images}/image-20250814160236039.png)
+
+## FAQ
+
+1.在端侧运行推理时，报错：No module named 'rknn'
+
+解决方案：修改rknn_model_zoo/py_utils/rknn_executor.py文件，将原来的
+
+```
+from rknn.api import RKNN
+```
+
+修改为：
+
+```
+from rknnlite.api import RKNNLite as RKNN
+```
+
+
+
+2.运行推理时，报错：Unsupported run platform: Linux aarch64
+
+解决方案：修改rknn_model_zoo/py_utils/rknn_executor.py文件，将原来的
+
+```
+ 		print('--> Init runtime environment')
+        if target==None:
+            ret = rknn.init_runtime()
+        else:
+            ret = rknn.init_runtime(target=target, device_id=device_id)
+        #if ret != 0:
+            print('Init runtime environment failed')
+            exit(ret)
+        print('done')
+```
+
+修改为：
+
+```
+ 		print('--> Init runtime environment')
+        ret = rknn.init_runtime()
+        print('done')
+```
+

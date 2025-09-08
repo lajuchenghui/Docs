@@ -17,18 +17,17 @@ sidebar_position: 2
 
 ## 1.Python库
 
-### 1.1 APT安装
+### 1.1 PIP安装
 
 ```
-pip3 install opencv-python
+pip3 install --break-system-packages opencv-python
 ```
 
 如果是国内用户可指定国内源安装，执行：
 
 ```
-pip3 install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install --break-system-packages opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
-
 
 
 ### 1.2 测试
