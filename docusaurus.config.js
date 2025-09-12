@@ -79,7 +79,13 @@ const config = {
             sidebarId: 'dshanpia1Sidebar',
             position: 'left',
             label: 'DshanPi-A1',
-          },        
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'dshanpir1Sidebar',
+            position: 'left',
+            label: 'DshanPi-R1',
+          },
           {
             type: 'localeDropdown',
             position: 'right',
