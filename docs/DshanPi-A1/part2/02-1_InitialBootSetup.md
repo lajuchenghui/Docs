@@ -76,14 +76,24 @@ sidebar_position: 1
 - **问题：在屏幕上如何进行设置呢？**
   - **解决方案：** 接上鼠标、键盘，和上面的设置是一样的。设置完成后，会进入如下桌面：
 
-![image-20250808175737643](images/image-20250808175737643.png)
+    ![image-20250808175737643](images/image-20250808175737643.png)
 
 - **问题：启动系统之后，隔一段时间，系统无反应**
   - **解决方案：** 这是系统进入了挂起状态，选择下面其中一个解决方案。
     1. **重新启动系统：** 断电重新启动系统，即可短暂解决挂起问题。
     2. **关闭挂起功能：** 在桌面上找到 **设置settings**，接着找到 **电源Power**，参考下图关闭挂起功能。
+    
+    ![image-20250808180618944](images/image-20250808180618944.png)
+    
+    3. **命令行关闭挂起功能：** 打开终端，执行以下指令：
 
-![image-20250808180618944](images/image-20250808180618944.png)
+    ~~~bash
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+    ~~~
+
 
 - **问题：第一次拿到板子，进入系统，发现直接提示需要输入用户名和密码，与上面文档操作不符**
   - **解决方案：** 正常现象，别慌！选择下面其中一个解决方案。
