@@ -40,10 +40,5 @@ sidebar_position: 1
 - **烧录工具 RKDevTool：** [RKDevTool_Release_v3.32.zip](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/RKDevTool_Release_v3.32.zip)
 - **终端工具便捷包 MobaXterm_Portable：** [MobaXterm_Portable_v25.2.zip](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/MobaXterm_Portable_v25.2.zip)
 
-## SDK
-
-> 不单独提供SDK包，提供完整的虚拟机；仅提供编译方式，其他应用需自行研究。
-
-加急整理中...
 
 
