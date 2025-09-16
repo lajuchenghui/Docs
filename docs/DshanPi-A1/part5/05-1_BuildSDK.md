@@ -17,7 +17,7 @@ https://pan.baidu.com/s/15M8zuHOwl_SITl6cSk_7Vg?pwd=eaax 提取码: eaax
 
 ## 2. 编译SDK
 
-打开虚拟机，执行以下命令，进入SDK根目录：
+打开虚拟机（虚拟机用户名ubunt，密码ubuntu），新建终端，执行以下命令，进入SDK根目录：
 
 ~~~bash
 cd ~/100ask-rk3576_SDK/
