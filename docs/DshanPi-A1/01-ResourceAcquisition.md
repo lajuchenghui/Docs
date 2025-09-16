@@ -9,7 +9,7 @@ sidebar_position: 1
 
 > 以下链接是 DshanPi-A1 的原理图，按住 `ctrl` 键，鼠标 `左键` 点击链接，即可下载。
 
-- **DshanPi-A1 原理图：** [DshanPi-A1-RK3576-SCH_V1.0.pdf](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1-RK3576-SCH_V1.0.pdf)
+- **DshanPi-A1 原理图：** [DshanPi-A1-RK3576-SCH_V1.1.pdf](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1-RK3576-SCH_V1.1.pdf)
 
 ## 外壳
 
