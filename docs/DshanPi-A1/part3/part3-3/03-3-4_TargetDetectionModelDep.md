@@ -20,44 +20,113 @@ cd ultralytics_yolov8
 2.使用conda创建环境
 
 ```
-conda create -name yolov8 python=3.9
+conda create -n yolov8 python=3.9
 conda activate yolov8
 ```
 
-3.安装yolov8相关依赖
+3.新建依赖文件
 
 ```
-pip3 install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 ultralytics==8.3.31 onnx==1.17.0 onnxruntime==1.8.0 onnxsim==0.4.36
+vi requirements.txt
 ```
 
-4.导出ONNX模型
+填入以下示例：
 
 ```
-python ultralytics/engine/exporter.py
+# Ultralytics requirements
+# Usage: pip install -r requirements.txt
+
+# Base ----------------------------------------
+matplotlib>=3.2.2
+numpy>=1.22.2 # pinned by Snyk to avoid a vulnerability
+opencv-python>=4.6.0
+pillow>=7.1.2
+pyyaml>=5.3.1
+requests>=2.23.0
+scipy>=1.4.1
+torch>=1.7.0
+torchvision>=0.8.1
+tqdm>=4.64.0
+
+# Logging -------------------------------------
+# tensorboard>=2.13.0
+# dvclive>=2.12.0
+# clearml
+# comet
+
+# Plotting ------------------------------------
+pandas>=1.1.4
+seaborn>=0.11.0
+
+# Export --------------------------------------
+# coremltools>=7.0.b1  # CoreML export
+onnx>=1.12.0  # ONNX export
+onnxsim>=0.4.1  # ONNX simplifier
+# nvidia-pyindex  # TensorRT export
+# nvidia-tensorrt  # TensorRT export
+# scikit-learn==0.19.2  # CoreML quantization
+# tensorflow>=2.4.1  # TF exports (-cpu, -aarch64, -macos)
+# tflite-support
+# tensorflowjs>=3.9.0  # TF.js export
+# openvino-dev>=2023.0  # OpenVINO export
+
+# Extras --------------------------------------
+psutil  # system utilization
+py-cpuinfo  # display CPU info
+# thop>=0.1.1  # FLOPs computation
+# ipython  # interactive notebook
+# albumentations>=1.0.3  # training augmentations
+# pycocotools>=2.0.6  # COCO mAP
+# roboflow
 ```
 
-如果无法下载模型可直接访问[yolov8n.pt](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.pt)，下载后放在`ultralytics_yolov8`目录下，再次执行。
+4.安装依赖
+
+```
+pip install -r requirements.txt
+```
+
+> 如果国内用户可使用国内源：pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+5.安装到当前解释器
+
+```
+pip install -e .
+```
+
+6.获取模型
+
+直接访问[yolov8n.pt](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.pt)，下载后放在`ultralytics_yolov8`目录下。
+
+> 如果您是训练生成的YOLOV8模型一样可放到此目录下，一样可进行模型转换。
+
+7.导出ONNX模型
+
+```
+yolo export model=./yolov8n.pt format=rknn
+```
 
 运行效果如下：
 
 ```
-(yolov8) baiwen@dshanpi-a1:~/ultralytics_yolov8$ python ultralytics/engine/exporter.py
+(yolov8) baiwen@dshanpi-a1:~/ultralytics_yolov8$ yolo export model=./yolov8n.pt format=rknn
 Ultralytics YOLOv8.2.82 🚀 Python-3.9.23 torch-2.4.1 CPU (Cortex-A53)
 YOLOv8n summary (fused): 168 layers, 3,151,904 parameters, 0 gradients, 8.7 GFLOPs
 
-PyTorch: starting from 'yolov8n.pt' with input shape (16, 3, 640, 640) BCHW and output shape(s) ((16, 64, 80, 80), (16, 80, 80, 80), (16, 1, 80, 80), (16, 64, 40, 40), (16, 80, 40, 40), (16, 1, 40, 40), (16, 64, 20, 20), (16, 80, 20, 20), (16, 1, 20, 20)) (6.2 MB)
+PyTorch: starting from 'yolov8n.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) ((1, 64, 80, 80), (1, 80, 80, 80), (1, 1, 80, 80), (1, 64, 40, 40), (1, 80, 40, 40), (1, 1, 40, 40), (1, 64, 20, 20), (1, 80, 20, 20), (1, 1, 20, 20)) (6.2 MB)
 
 RKNN: starting export with torch 2.4.1...
 
 RKNN: feed yolov8n.onnx to RKNN-Toolkit or RKNN-Toolkit2 to generate RKNN model.
 Refer https://github.com/airockchip/rknn_model_zoo/tree/main/models/CV/object_detection/yolo
-RKNN: export success ✅ 2.8s, saved as 'yolov8n.onnx' (12.1 MB)
+RKNN: export success ✅ 3.6s, saved as 'yolov8n.onnx' (12.1 MB)
 
-Export complete (24.8s)
+Export complete (8.8s)
 Results saved to /home/baiwen/ultralytics_yolov8
 Predict:         yolo predict task=detect model=yolov8n.onnx imgsz=640
 Validate:        yolo val task=detect model=yolov8n.onnx imgsz=640 data=coco.yaml
 Visualize:       https://netron.app
+💡 Learn more at https://docs.ultralytics.com/modes/export
 ```
 
 执行完成后可以在当前目录下看到ONNX模型文件`yolov8n.onnx`。
@@ -99,7 +168,6 @@ python3 convert.py ../model/yolov8n.onnx rk3576
 运行效果如下：
 
 ```
-
 (rknn-toolkit2) baiwen@dshanpi-a1:~/Projects/rknn_model_zoo/examples/yolov8/python$ python3 convert.py ../model/yolov8n.onnx rk3576
 I rknn-toolkit2 version: 2.3.2
 --> Config model
@@ -177,15 +245,19 @@ W inference: The 'data_format' is not set, and its default value is 'nhwc'!
 
 运行后会弹出下图所示的检测结果图：
 
-![image-20250819151219428](${images}/image-20250819151219428.png)
+![image-20250819151219428](${images}/image-20250819151219428-1758269551337-1.png)
 
 ## 4.视频流推理
 
 > 开始前请注意，请务必接入USB摄像头，并确认/dev/目录下存在video0设备节点！！！
 
+运行如下命令推理：
 
+```
+python3 yolov8_video.py --model_path ../model/yolov8.rknn --target rk3576
+```
 
-1.新建程序文件`yolov8_video.py.py`,填入一下内容：
+程序文件`yolov8_vide.py`内容如下：
 
 ```
 import os
@@ -446,11 +518,5 @@ if __name__ == '__main__':
     cap.release()
     cv2.destroyAllWindows()
     model.release()
-```
-
-运行如下命令推理：
-
-```
-python3 yolov8_video.py --model_path ../model/yolov8.rknn --target rk3576
 ```
 
