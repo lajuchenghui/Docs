@@ -1,7 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
-# 网络连接引导
+# 网络连接
 
 本章节将讲解如何在百问网 dshanpi-a1 设备上连接网络，连接的方式主要有两种：千兆有线网口 和 无线WiFi。
 

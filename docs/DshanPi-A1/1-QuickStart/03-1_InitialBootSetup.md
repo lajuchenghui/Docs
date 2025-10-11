@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
-# 首次启动设置引导
+# 首次启动设置
 
 本章节将带领您完成百网网 dshanpi-a1的首次启动快速配置，从零开始，一步到位。
 

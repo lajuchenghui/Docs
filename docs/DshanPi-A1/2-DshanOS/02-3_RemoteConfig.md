@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# 远程登录SSH终端
+# 远程登录
 
 本章节将讲解如何通过 SSH工具登录远程百问网 dshanpi-a1 终端。
 
