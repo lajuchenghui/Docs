@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 开发资料汇总
+# 资源下载汇总
 
 本章节为大家提供系统镜像、烧录工具/驱动、原理图等相关资料下载链接。
 
@@ -12,13 +12,48 @@ sidebar_position: 1
 ### Armbian系统（默认）
 
 :::tip
-我们长期维护 ArmbianOS。该链接将始终指向最新版系统镜像，实时同步更新。
+长期维护 ArmbianOS 默认出厂系统。
 :::
+- ArmbianOS 系统V1.0
+  - 支持功能/亮点：支持韦东山RK3576 DshanPI-A1 HDMI IN、双千兆网口、HDMI OUT、耳机接口、MIC、SPK喇叭、USB3.0、USB TYPE-C OTG/DP、PCI-e WIFI（配套rtl8852ae）。
+  - 默认用户名密码：首次启动需要连接显示器 自行设置用户名密码，系统默认的用户名是root 密码100ask 
+  - **ArmbianOS 系统镜像 V1.0：** [DshanPi-A1_ArmbianOS V1.0](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/100ASK_Armbian_25.11.0-trunk_Dshanpi-a1_noble_vendor_6.1.115_gnome_desktop.img.7z) 耐心等待下载完成解压；解压后md5校验值： `02af1bb5fabc18b5aea7e8cc4352f10f`
+  - **ArmbianOS 引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 刷写工具：默认存在系统，如需重刷请访问
 
-- **DshanPi-A1 ArmbianOS 系统镜像：** [DshanPi-A1_ArmbianOS](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/100ASK_Armbian_25.11.0-trunk_Dshanpi-a1_noble_vendor_6.1.115_gnome_desktop.img.7z)
-耐心等待下载完成；md5值校验如下： `02af1bb5fabc18b5aea7e8cc4352f10f *100ASK_Armbian_25.11.0-trunk_Dshanpi-a1_noble_vendor_6.1.115_gnome_desktop.img`
+### Openwrt系统
+- OpenwrtLED系统V1.0
+  - 支持功能/亮点：
+  - 默认用户名密码：
+  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
+  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 刷写工具：默认存在系统，如需重刷请访问
 
-- **DshanPi-A1 ArmbianOS 引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+### Buildroot系统
+- Buildroot系统V1.0
+  - 支持功能/亮点：
+  - 默认用户名密码：
+  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
+  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 刷写工具：默认存在系统，如需重刷请访问
+
+### ArchLinux系统
+- ArchLinux系统V1.0
+  - 支持功能/亮点：
+  - 默认用户名密码：
+  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
+  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 刷写工具：默认存在系统，如需重刷请访问
+
+### OpenEuler系统
+- OpenEuler系统V1.0
+  - 支持功能/亮点：
+  - 默认用户名密码：
+  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
+  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 刷写工具：默认存在系统，如需重刷请访问
+
+### Fedora系统
 
 
 ## 相关工具
@@ -39,17 +74,7 @@ sidebar_position: 1
 - **DshanPi-A1 外壳：** [DshanPi-A1-3DPrint-Shell.STL](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1-3DPrint-Shell.STL)
 - **DshanPi-A1 顶盖：** [DshanPi-A1-3DPrint-Top.3MF](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1-3DPrint-Top.3MF)
 
-## 尺寸图
+## 尺寸
 
 - **DshanPi-A1 尺寸图：** [DshanPi-A1-StructureDiagram.png](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1-StructureDiagram.png)
-- ![DshanPi-A1-StructureDiagram](images/DshanPi-A1-StructureDiagram.png)
 
-
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
