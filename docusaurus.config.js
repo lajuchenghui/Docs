@@ -92,7 +92,7 @@ const config = {
             sidebarId: 'dshanpia1Sidebar',
             position: 'left',
             label: 'DshanPi-A1',
-          },
+          },      
           {
             type: 'localeDropdown',
             position: 'right',
@@ -113,6 +113,11 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+     // Add the Mermaid plugin and enable it in markdown
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 
