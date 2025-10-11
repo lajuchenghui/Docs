@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # 资源下载汇总
@@ -25,32 +25,32 @@ sidebar_position: 2
 - OpenwrtLED系统V1.0
   - 支持功能/亮点：
   - 默认用户名密码：
-  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
-  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
-  - 刷写工具：默认存在系统，如需重刷请访问
+  - 系统镜像 V1.0： [DshanPi-A1_OpenWrt_Image](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/openwrt-rockchip-armv8-100ask_dshanpia1-squashfs-sysupgrade.7z) 
+  - 引导固件： [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 刷写步骤：参考教程
+
 
 ### Buildroot系统
 - Buildroot系统V1.0
   - 支持功能/亮点：
   - 默认用户名密码：
-  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
-  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
-  - 刷写工具：默认存在系统，如需重刷请访问
+  - 系统镜像 V1.0：[DshanPi-A1_Buildroot_Image](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/DshanPi-A1_Default_Buildroot.7z)
+  - 刷写工具：参考教程
 
 ### ArchLinux系统
 - ArchLinux系统V1.0
   - 支持功能/亮点：
   - 默认用户名密码：
-  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
-  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 系统镜像 V1.0： 耐心等待下载完成解压；解压后md5校验值： ``
+  - 引导固件： [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
   - 刷写工具：默认存在系统，如需重刷请访问
 
 ### OpenEuler系统
 - OpenEuler系统V1.0
   - 支持功能/亮点：
   - 默认用户名密码：
-  - **系统镜像 V1.0：** 耐心等待下载完成解压；解压后md5校验值： ``
-  - **引导固件：** [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
+  - 系统镜像 V1.0： 耐心等待下载完成解压；解压后md5校验值： ``
+  - 引导固件： [rk3576_spl_loader_v1.09.107.bin](https://dl.100ask.net/Hardware/MPU/RK3576-DshanPi-A1/rk3576_spl_loader_v1.09.107.bin)
   - 刷写工具：默认存在系统，如需重刷请访问
 
 ### Fedora系统
