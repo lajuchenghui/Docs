@@ -20,8 +20,9 @@ sidebar_position: 1
 
 ### 1.1 模型训练
 
-> 模型训练建议使用GPU加速训练，下面教程是基于Window下使用Conda创建环境，如果您的主机不是Windows或者下面的教程无法在您的主机上实现，可在自行在网上检索`YOLOV8 模型训练`相关教程。
-
+:::tip
+模型训练建议使用GPU加速训练，下面教程是基于Window下使用Conda创建环境，如果您的主机不是Windows或者下面的教程无法在您的主机上实现，可在自行在网上检索`YOLOV8 模型训练`相关教程。
+:::
 **1.安装AnaConda**
 
 进入AnaConda的官网[https://www.anaconda.com/ ](https://www.anaconda.com/)，下载AnaConda安装包。
@@ -62,7 +63,11 @@ git clone -b v8.2.0 https://github.com/ultralytics/ultralytics.git
 
 百度网盘链接: https://pan.baidu.com/s/1H3-BO9ros8aLhWAiVCOj1g?pwd=xn87 提取码: xn87
 
-> 如果您想使用自己的数据集进行训练，可以下载 [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling) 完成标注，标注完成后的数据转换成yolov8官方支持的训练数据格式。
+:::tip
+
+如果您想使用自己的数据集进行训练，可以下载 [X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling) 完成标注，标注完成后的数据转换成yolov8官方支持的训练数据格式。
+
+:::
 
 在yolov8项目同级目录下，新建datasets目录，在这个目录下新建`AimLab`目录，存放数据集文件，目录结构如下：
 
@@ -139,7 +144,13 @@ yolo export model=runs/detect/train/weights/best.pt format=onnx imgsz=640
 
 ### 1.2 模型转换
 
-> 模型转换需要使用RKNN的模型转换环境，如果之前没用搭建过RKNN环境，请参考《AI进阶应用》的《RKNN环境搭建》章节。
+:::tip
+
+模型转换需要使用RKNN的模型转换环境，如果之前没用搭建过RKNN环境，请参考《AI进阶应用》的《RKNN环境搭建》章节。
+
+:::
+
+- 模型示例：链接: https://pan.baidu.com/s/1MmielydsG2t9hyHwoqA3rg?pwd=t355 提取码: t355
 
 将训练完成并导出的ONNX模型传输至`~/Projects/rknn_model_zoo/examples/yolov8/model`目录下，使用如下命令进行模型转换
 
@@ -175,7 +186,7 @@ CLASSES = ("target")
 
 
 
-2.将需要推理的图片拷贝到当前目录下
+2.将需要推理的图片拷贝到当前目录下。
 
 
 
@@ -213,6 +224,10 @@ sudo mkdir -p /opt/hid-gadget
 ```
 
 新建脚本文件`init.sh`：
+
+<details>
+<summary>HID 脚本 </summary>
+<div>
 
 ```
 #!/bin/bash
@@ -271,6 +286,9 @@ fi
 echo $UDC_NAME > UDC
 ```
 
+</div>
+</details>
+
 增加可执行权限：
 
 ```
@@ -296,6 +314,10 @@ sudo chmod 666 /dev/hidg0
 ### 2.2 功能测试
 
 新建测试程序`hid.py`：
+
+<details>
+<summary>HID 测试程序 </summary>
+<div>
 
 ```
 #!/usr/bin/env python3
@@ -350,6 +372,9 @@ finally:
     fd.close()
 ```
 
+</div>
+</details>
+
 运行程序：
 
 ```
@@ -368,7 +393,11 @@ python3 hid.py
 
 我们需要从HDMI IN获取视频流，所以在开始前请阅读《应用开发》->《摄像头与显示应用》->《HDMI IN与摄像头》,此章节详细描述了HDMI IN的使用。同时还需要阅读《多媒体应用》->《GStreamer与OpenCV》，此章节详细描述了在OpenCV中使用HDMI IN作为视频流输入。
 
-> 注意：开始前请提前将HDMI IN连接至主机画面。
+:::tip
+
+注意：开始前请提前将HDMI IN连接至主机画面。
+
+:::
 
 ![image-20250829111514696](${images}/image-20250829111514696.png)
 
@@ -390,6 +419,10 @@ cd ~/Projects/rknn_model_zoo/examples/yolov8/python
 ```
 
 修改yolov8.py源码：
+
+<details>
+<summary>视频流yolov8推理源码 </summary>
+<div>
 
 ```
 import os
@@ -665,6 +698,9 @@ if __name__ == '__main__':
     model.release()
 ```
 
+</div>
+</details>
+
 运行程序获取：
 
 ```
@@ -678,6 +714,10 @@ python3 yolov8.py --model_path ../model/yolov8.rknn --target rk3576
 
 
 ### 3.2 自瞄源码示例
+
+<details>
+<summary>yolov8+hid源码 </summary>
+<div>
 
 ```
 #!/usr/bin/env python3
@@ -1153,6 +1193,9 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+</div>
+</details>
 
 由于不同的电脑运行程序后效果可能会有所差异，可通过调整下面几个参数来实现较优效果
 
