@@ -67,8 +67,8 @@ APP和驱动之间的简单对应关系为：
 - APP调用write函数时，传入的数据保存在驱动中
 - APP调用read函数时，把驱动中保存的数据返回给APP
 
-hello_drv.c 源码如下：
-
+<details>   
+    <summary>hello_drv.c 源码如下：</summary> 
 ```c
 01 #include <linux/module.h>
 02
@@ -172,8 +172,9 @@ hello_drv.c 源码如下：
 100 module_exit(hello_exit);
 101
 102 MODULE_LICENSE("GPL");
-103
-```
+103 
+``` 
+</details>
 
 阅读一个驱动程序，从它的入口函数开始，第66行就是入口函数。它的主要工作就是第71行，向内核注册一个file_operations结构体：hello_drv，这就是字符设备驱动程序的核心。
 
@@ -190,8 +191,8 @@ file_operations 结构体 hello_drv 中的成员函数都比较简单，大多�
 ./hello_drv_test  -r                  // 把驱动中保存的字符串读回来
 ```
 
-hello_drv_test.c 源码如下：
-
+<details>
+<summary> hello_drv_test.c 源码如下：</summary>
 ```c
 02 #include <sys/types.h>
 03 #include <sys/stat.h>
@@ -245,6 +246,7 @@ hello_drv_test.c 源码如下：
 51      return 0;
 52 }
 ```
+</details>
 
 ### 1.4.3 测试
 
