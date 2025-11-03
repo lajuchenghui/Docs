@@ -118,7 +118,7 @@ yolo detect train data=ultralytics/cfg/datasets/aimlab.yaml model=yolov8n.pt epo
 
 训练完成后可以在`runs/detect/train*/weights`目录下看到训练完成的模型文件。以下为训练过程图片：
 
-![image-20251013171954016](${images}/image-20251013171954016.png)
+![image-20251013171954016](images/image-20251013171954016.png)
 
 
 
@@ -198,13 +198,13 @@ python3 yolov8.py --model_path ../model/yolov8.rknn --target rk3576 --img_folder
 
 运行效果图如下：
 
-![image-20251013191248816](${images}/image-20251013191248816.png)
+![image-20251013191248816](images/image-20251013191248816.png)
 
 ## 2.模拟键鼠
 
 开始前请提前将DshanPI A1的OTG使用Type-C数据线连接至电脑端。
 
-![image-20251013185235924](${images}/image-20251013185235924.png)
+![image-20251013185235924](images/image-20251013185235924.png)
 
 ### 2.1 HID模拟
 
@@ -309,7 +309,7 @@ sudo chmod 666 /dev/hidg0
 
 运行完成后可以在电脑端的设备管理器中看到鼠标设备。
 
-![image-20251013185400558](${images}/image-20251013185400558.png)
+![image-20251013185400558](images/image-20251013185400558.png)
 
 ### 2.2 功能测试
 
@@ -383,7 +383,7 @@ python3 hid.py
 
 运行效果：
 
-![hid](${images}/hid.gif)
+![hid](images/hid.gif)
 
 可以看到鼠标在四边形的四个角移动。
 
@@ -399,7 +399,7 @@ python3 hid.py
 
 :::
 
-![image-20250829111514696](${images}/image-20250829111514696.png)
+![image-20250829111514696](images/image-20250829111514696.png)
 
 开始前请测试HDMI IN是否有数据流，打开终端输入：
 
@@ -709,7 +709,7 @@ python3 yolov8.py --model_path ../model/yolov8.rknn --target rk3576
 
 运行后 HDMI OUT的电脑端可打开一张数据集的图片。
 
-![image-20251014103744641](${images}/image-20251014103744641.png)
+![image-20251014103744641](images/image-20251014103744641.png)
 
 
 
@@ -1231,6 +1231,6 @@ python3 yolov8.py --model ../model/yolov8.rknn
 
 运行效果：
 
-![aimouse2](${images}/aimouse2.gif)
+![aimouse2](images/aimouse2.gif)
 
 运行成功后，会程序会自动检测目标，并控制鼠标移动至目标区域并射击。
