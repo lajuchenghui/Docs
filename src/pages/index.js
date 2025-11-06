@@ -2,5 +2,5 @@ import React from 'react';
 import  { Redirect } from 'react-router-dom';
 
 export default function Home() {
-  return <Redirect to='docs/DshanPi-A1/intro' />;
+  return <Redirect to='blog' />;
 }

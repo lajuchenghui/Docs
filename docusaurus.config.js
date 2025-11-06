@@ -93,6 +93,7 @@ const config = {
             position: 'left',
             label: 'DshanPi-A1',
           },      
+          {to: '/blog', label: 'Blog', position: 'right'},
           {
             type: 'localeDropdown',
             position: 'right',
